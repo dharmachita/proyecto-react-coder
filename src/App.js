@@ -3,6 +3,7 @@ import Navbar from './globals/Navbar';
 import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import ItemListContainer from './components/containers/ItemListContainer';
 import ItemDetailContainer from './components/containers/ItemDetailContainer';
+import Footer from './globals/Footer';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             </Route>
           </Switch>
         </main>
+      <Footer/>
       </div>
     </BrowserRouter>
   );

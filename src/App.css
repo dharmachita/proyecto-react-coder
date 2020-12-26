@@ -88,6 +88,7 @@ main{
   align-content: center;
   background-color: brown;
   height: 100%;
+  margin-bottom:1rem;
 }
 
 .text-link{
@@ -97,4 +98,20 @@ main{
 .catlist{
   text-decoration: none;
   color: inherit;
+}
+
+.footer{
+  display:flex;
+  flex-wrap: wrap;
+  background-color: #282c34;
+  padding: 2rem;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif cursive;
+}
+
+.footer>p{
+  margin: 1rem;
 }

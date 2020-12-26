@@ -6,7 +6,7 @@ export default function Item(props){
     return(
     <>
     <p>Soy un Item</p>
-    <Link to={`item/${id}`}>Detalle</Link>    
+    <Link to={`/item/${id}`}>Detalle</Link>    
     </>
     )
 }
