@@ -1,3 +1,8 @@
-export default function ItemDetail(){
-    return <p>Soy un ItemDetail</p>
+export default function ItemDetail(props){
+    const {titulo} = props;
+    return (
+        <>
+            <p>{titulo}</p>
+        </>
+    )
 }

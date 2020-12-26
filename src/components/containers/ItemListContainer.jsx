@@ -3,11 +3,13 @@ import api from '../../utils/productos.json';
 import {useState,useEffect} from 'react';
 import Item from '../Item';
 import Error from '../Error';
+import {useParams} from 'react-router-dom';
 
 export default function ItemListContainer(){
-    
-    const [productos,setProductos] = useState([]);
-    const [error,setError] = useState();
+	 
+	const {catid} = useParams();
+   const [productos,setProductos] = useState([]);
+   const [error,setError] = useState();
     
     //Emulación de búsqueda de datos en API
     const buscarEnApi = new Promise((resolve,reject)=>{
@@ -28,12 +30,14 @@ export default function ItemListContainer(){
         })
         //eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
-    
-
+	 
+	 
     return(
         <div className="itemList"> 
             {
-                error?
+					<>
+					<h1>{catid?catid:`Productos Destacados`}</h1>
+                {error?
                 	<Error 
                      mensaje={error}
 						/>:
@@ -41,6 +45,7 @@ export default function ItemListContainer(){
                     productos.map(producto=>
 							<Item 
 								key={producto.id}
+								id={producto.id}
 								title={producto.titulo}
 								img={producto.url}
 								price={producto.precio}
@@ -49,6 +54,8 @@ export default function ItemListContainer(){
 							/>
 						  ):
                     <Bars />
+						}
+					</>
             }
             
         </div>
