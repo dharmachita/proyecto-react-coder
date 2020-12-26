@@ -12,7 +12,7 @@ export default function ItemListContainer(){
     //Emulación de búsqueda de datos en API
     const buscarEnApi = new Promise((resolve,reject)=>{
     setTimeout(()=>{
-      false?resolve(api):reject("Error 500");
+      true?resolve(api):reject("Error 500");
         }, 2000)
     })
     

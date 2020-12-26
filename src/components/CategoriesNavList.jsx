@@ -1,16 +1,25 @@
 import categorias from '../utils/categories.json';
+import {NavLink} from 'react-router-dom';
 
 export default function CatNavList(){
 
-    
+
     return(
         <ul id="catnav">
-        <li className="catList">Categoría 1</li>
-        <li className="catList">Categoría 2</li>
-        <li className="catList">Categoría 3</li>
-        <li className="catList">Categoría 1</li>
-        <li className="catList">Categoría 2</li>
-        <li className="catList">Categoría 3</li>            
+        {
+            categorias.map((categoria,index)=>
+                <li 
+                    key={index}
+                >
+                    <NavLink 
+                    to={categoria.url}
+                    className="text-link"
+                    >
+                        {categoria.cat}
+                    </NavLink>
+                </li>
+            )
+        }      
         </ul>
     )
 }

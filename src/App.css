@@ -46,6 +46,7 @@ ul#catnav li {
   text-decoration: none;
   margin: 1rem;
   font-size:15px;
+  
 }
 
 .logo{
@@ -90,6 +91,10 @@ main{
 }
 
 .text-link{
+  text-decoration: none;
+  color: inherit;
+}
+.catlist{
   text-decoration: none;
   color: inherit;
 }
