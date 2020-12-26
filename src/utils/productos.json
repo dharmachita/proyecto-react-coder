@@ -1,0 +1,42 @@
+[
+    {   
+        "id":1,
+        "titulo":"Cuaderno",
+        "url":"https://via.placeholder.com/150.png",
+        "bigImg":"https://via.placeholder.com/300.png",
+        "precio":"$250",
+        "alt":"descripción",
+        "stock": 8,
+        "descripcion":"El Lorem Ipsum fue concebido como un texto de relleno, formateado de una cierta manera para permitir la presentación de elementos gráficos en documentos, sin necesidad de una copia formal. El uso de Lorem Ipsum permite a los diseñadores reunir los diseños y la forma del contenido antes de que el contenido se haya creado, dando al diseño y al proceso de producción más libertad."
+    },
+    {   
+        "id":2,
+        "titulo":"Hornito",
+        "url":"https://via.placeholder.com/150.png",
+        "bigImg":"https://via.placeholder.com/300.png",
+        "precio":"$400",
+        "alt":"descripción",
+        "stock": 2,
+        "descripcion":"El Lorem Ipsum fue concebido como un texto de relleno, formateado de una cierta manera para permitir la presentación de elementos gráficos en documentos, sin necesidad de una copia formal. El uso de Lorem Ipsum permite a los diseñadores reunir los diseños y la forma del contenido antes de que el contenido se haya creado, dando al diseño y al proceso de producción más libertad."
+    },
+    {   
+        "id":3,
+        "titulo":"Cuadro",
+        "url":"https://via.placeholder.com/150.png",
+        "bigImg":"https://via.placeholder.com/300.png",
+        "precio":"$380",
+        "alt":"descripción",
+        "stock": 7,
+        "descripcion":"El Lorem Ipsum fue concebido como un texto de relleno, formateado de una cierta manera para permitir la presentación de elementos gráficos en documentos, sin necesidad de una copia formal. El uso de Lorem Ipsum permite a los diseñadores reunir los diseños y la forma del contenido antes de que el contenido se haya creado, dando al diseño y al proceso de producción más libertad."
+    },
+    {   
+        "id":4,
+        "titulo":"Colgante",
+        "url":"https://via.placeholder.com/150.png",
+        "bigImg":"https://via.placeholder.com/300.png",
+        "precio":"$110",
+        "alt":"descripción",
+        "stock": 0,
+        "descripcion":"El Lorem Ipsum fue concebido como un texto de relleno, formateado de una cierta manera para permitir la presentación de elementos gráficos en documentos, sin necesidad de una copia formal. El uso de Lorem Ipsum permite a los diseñadores reunir los diseños y la forma del contenido antes de que el contenido se haya creado, dando al diseño y al proceso de producción más libertad."
+    }
+]

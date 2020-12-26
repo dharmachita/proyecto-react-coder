@@ -1,5 +1,6 @@
 import ShoppCart from '../components/ShoppCart';
 import Categories from '../components/CategoriesNavList';
+import {Link} from 'react-router-dom';
 
 export default function Nabvar(){
 	//Cantidad de productos en el carrito - HARDCODEADO
@@ -9,7 +10,7 @@ export default function Nabvar(){
 
 		<div className="navcont App-header">
 			<p></p>
-			<h1 className="logo">Me gusta el Arte!!!</h1>
+			<Link className="text-link" to={"/"}><h1 className="logo">Me gusta el Arte!!!</h1></Link>
 			<ShoppCart />
 			{cantidad>0&& <span className="span-cart">{cantidad}</span>}
             <Categories />

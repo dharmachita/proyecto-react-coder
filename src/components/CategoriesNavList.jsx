@@ -1,5 +1,8 @@
+import categorias from '../utils/categories.json';
+
 export default function CatNavList(){
 
+    
     return(
         <ul id="catnav">
         <li className="catList">Categoría 1</li>

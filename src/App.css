@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
 
 /*Desktop*/
-
 .App {
   text-align: center;
 }
@@ -78,4 +77,19 @@ ul#catnav li {
   font-size: 15px;
   vertical-align: text-top;
   padding-left: 0.5rem;
+}
+
+.itemList{
+  margin: 0 20px;
+}
+
+main{
+  align-content: center;
+  background-color: brown;
+  height: 100%;
+}
+
+.text-link{
+  text-decoration: none;
+  color: inherit;
 }
