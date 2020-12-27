@@ -11,11 +11,14 @@ export default function ItemListContainer(){
     const [productos,setProductos] = useState([]);
     const [error,setError] = useState();
     
+    //Filtrar por categoria
+    const isCategory = catid?api.filter(prods=>prods.categoria===catid):api;
+
     //Emulación de búsqueda de datos en API
     const buscarEnApi = new Promise((resolve,reject)=>{
     setTimeout(()=>{
-      true?resolve(api):reject("Error 500");
-        }, 2000)
+        true?resolve(isCategory):reject("Error 500");
+            }, 2000)
     })
     
     //useEffect para ejecutar la llamada cuando se monta el componente
@@ -29,7 +32,7 @@ export default function ItemListContainer(){
             setError("Lo sentimos, no hemos podido cargar los productos :( ");
         })
         //eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[catid])
 	 
 	 
     return(
@@ -52,7 +55,7 @@ export default function ItemListContainer(){
 								alt={producto.alt} 
 								stock={producto.stock}
 							/>
-						):
+                        ):
                         <Bars fill="brown"/>
                     }
                 </div>

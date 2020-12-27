@@ -1,18 +1,18 @@
 [
     {
-        "cat":"Accesorios",
-        "url":"/accesorios"
+        "titulo":"Accesorios",
+        "cat":"accesorios"
     },
     {
-        "cat":"Deco",
-        "url":"/decoracion"
+        "titulo":"Deco",
+        "cat":"decoracion"
     },
     {
-        "cat":"Regalos",
-        "url":"/regalos"
+        "titulo":"Regalos",
+        "cat":"regalos"
     },
     {
-        "cat":"Autor",
-        "url":"/autor"
+        "titulo":"Autor",
+        "cat":"autor"
     }
 ]

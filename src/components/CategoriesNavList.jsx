@@ -12,10 +12,10 @@ export default function CatNavList(){
                     key={index}
                 >
                     <NavLink 
-                    to={`/categoria${categoria.url}`}
+                    to={`/categoria/${categoria.cat}`}
                     className="text-link"
                     >
-                        {categoria.cat}
+                        {categoria.titulo}
                     </NavLink>
                 </li>
             )
