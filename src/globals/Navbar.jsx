@@ -10,7 +10,7 @@ export default function Nabvar(){
 
 		<div className="navcont App-header">
 			<p></p>
-			<Link className="text-link" to={"/"}><h1 className="logo">Me gusta el Arte!!!</h1></Link>
+			<Link className="text-link shadow" to={"/"}><h1 className="logo">Me gusta el Arte!!!</h1></Link>
 			<ShoppCart />
 			{cantidad>0&& <span className="span-cart">{cantidad}</span>}
             <Categories />

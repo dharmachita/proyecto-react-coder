@@ -4,15 +4,18 @@ import {useState,useEffect} from 'react';
 import Item from '../Item';
 import Error from '../Error';
 import {useParams} from 'react-router-dom';
+import categorias from '../../utils/categories.json';
 
 export default function ItemListContainer(){
 	 
     const {catid} = useParams();
     const [productos,setProductos] = useState([]);
+    const [isLoading,setLoading] = useState(true);
     const [error,setError] = useState();
     
     //Filtrar por categoria
     const isCategory = catid?api.filter(prods=>prods.categoria===catid):api;
+    const catName=catid&&categorias.find(cat=>cat.cat===catid);
 
     //Emulación de búsqueda de datos en API
     const buscarEnApi = new Promise((resolve,reject)=>{
@@ -23,9 +26,11 @@ export default function ItemListContainer(){
     
     //useEffect para ejecutar la llamada cuando se monta el componente
     useEffect(()=>{
+        setLoading(true);
         buscarEnApi
         .then(result=>{
             setProductos(result);
+            setLoading(false);
         })
         .catch((err)=>{
             console.error(err);
@@ -33,18 +38,17 @@ export default function ItemListContainer(){
         })
         //eslint-disable-next-line react-hooks/exhaustive-deps
     },[catid])
-	 
-	 
+        	 
     return(
         
             <>
-                <h1>{catid?catid:`Productos Destacados`}</h1>
+                <h2>{catid?catName.titulo:`Productos Destacados`}</h2>
                 <div className="itemList"> 
                     {error?
                 	    <Error 
                             mensaje={error}
 						/>:
-                        productos.length?
+                        !isLoading?
                         productos.map(producto=>
 							<Item 
 								key={producto.id}

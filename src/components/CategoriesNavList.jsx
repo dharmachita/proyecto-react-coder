@@ -13,7 +13,7 @@ export default function CatNavList(){
                 >
                     <NavLink 
                     to={`/categoria/${categoria.cat}`}
-                    className="text-link"
+                    className="text-link shadow"
                     >
                         {categoria.titulo}
                     </NavLink>
