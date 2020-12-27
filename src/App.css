@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
 
 /*Desktop*/
+body{
+  background-color: rgb(250, 226, 226);
+}
 .App {
   text-align: center;
 }
@@ -82,11 +85,14 @@ ul#catnav li {
 
 .itemList{
   margin: 0 20px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 main{
   align-content: center;
-  background-color: brown;
+  background-color: rgb(250, 226, 226);
   height: 100%;
   margin-bottom:1rem;
 }
@@ -112,6 +118,22 @@ main{
   font-family: Arial, Helvetica, sans-serif cursive;
 }
 
-.footer>p{
+.footer-link{
+  margin: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.contador-item{
+	display:flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
   margin: 1rem;
 }
+.contador-num{
+  margin-left:10%;
+  margin-right:10%;
+  display:"inline" 
+}
+

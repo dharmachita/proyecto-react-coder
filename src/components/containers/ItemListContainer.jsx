@@ -7,9 +7,9 @@ import {useParams} from 'react-router-dom';
 
 export default function ItemListContainer(){
 	 
-	const {catid} = useParams();
-   const [productos,setProductos] = useState([]);
-   const [error,setError] = useState();
+    const {catid} = useParams();
+    const [productos,setProductos] = useState([]);
+    const [error,setError] = useState();
     
     //Emulación de búsqueda de datos en API
     const buscarEnApi = new Promise((resolve,reject)=>{
@@ -33,16 +33,16 @@ export default function ItemListContainer(){
 	 
 	 
     return(
-        <div className="itemList"> 
-            {
-					<>
-					<h1>{catid?catid:`Productos Destacados`}</h1>
-                {error?
-                	<Error 
-                     mensaje={error}
+        
+            <>
+                <h1>{catid?catid:`Productos Destacados`}</h1>
+                <div className="itemList"> 
+                    {error?
+                	    <Error 
+                            mensaje={error}
 						/>:
-                  productos.length?
-                    productos.map(producto=>
+                        productos.length?
+                        productos.map(producto=>
 							<Item 
 								key={producto.id}
 								id={producto.id}
@@ -52,12 +52,11 @@ export default function ItemListContainer(){
 								alt={producto.alt} 
 								stock={producto.stock}
 							/>
-						  ):
-                    <Bars />
-						}
-					</>
-            }
-            
-        </div>
+						):
+                        <Bars fill="brown"/>
+                    }
+                </div>
+			</>
+ 
     ) 
 }

@@ -1,4 +1,5 @@
 import pagos from '../assets/tarjetas.png';
+import {Link} from 'react-router-dom';
 
 export default function Footer(){
     return(
@@ -7,7 +8,7 @@ export default function Footer(){
                 src={pagos}
                 alt="pagos con tarjetas">    
             </img>
-            <p>2020 - megustaelarte.com</p>
+            <Link to={"/"}><p className="footer-link">2020 - megustaelarte.com</p></Link>
         </div>
     )
 }
