@@ -130,7 +130,7 @@ main{
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
-  margin: 1rem;
+  margin: 1rem 0;
 }
 .contador-num{
   margin-left:10%;
@@ -153,4 +153,65 @@ main{
 .detail-cont{
   margin-top:2rem;
   min-height: 400px;
+}
+
+.footer>a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mas-prod{
+  margin-top: 2rem;
+}
+.mas-prod>a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.detail-img-desc{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1rem;
+  justify-content: center;
+}
+
+.detail-desc{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  text-align: left;
+  width: 50%;
+}
+
+.fig-cap{
+  color:white;
+}
+
+.fig-cap>span{
+  font-weight: bold;
+}
+
+.under-img{
+  background-color: brown;
+  color: white;
+}
+
+.add-button:hover{
+	transform:scale(1.1);
+	background-color:#fe9048;
+	box-shadow:2px 2px 12px rgba(47,47,47,0.40);
+	transition:all ease 0.1s;
+}
+
+.add-button{
+	bottom:0px;
+	height:45px;
+	background-color:#ff696e;
+	width:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color:#FFFFFF;
+	box-shadow: none;
+	border: none;
 }

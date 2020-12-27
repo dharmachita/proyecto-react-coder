@@ -48,7 +48,7 @@ export default function ItemDetailContainer(){
                         />:
                         <div>
                             <h3>Producto no encontrado</h3>
-                            <p>Lo sentimos, el producto que intenta buscar 
+                            <p>Lo sentimos, el producto  
                                 no se encuentra o no está disponible.
                             </p>
                         </div>
