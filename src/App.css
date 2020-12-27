@@ -143,3 +143,14 @@ main{
   transform: scale(1.3);
   transition: all 0.5s ease 0.1s
 }
+
+.category-span{
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+}
+
+.detail-cont{
+  margin-top:2rem;
+  min-height: 400px;
+}
