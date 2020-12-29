@@ -1,9 +1,10 @@
 import {Link} from 'react-router-dom';
 import '../assets/style.css';
 import ItemCount from '../globals/ItemCount';
+import img from '../assets/150.png';
 
 export default function Item(props){
-    const {	id,title,img,price,alt,stock } = props
+    const {	id,title,price,alt,stock } = props
 
     return(
     

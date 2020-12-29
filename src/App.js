@@ -4,6 +4,7 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import ItemListContainer from './components/containers/ItemListContainer';
 import ItemDetailContainer from './components/containers/ItemDetailContainer';
 import Footer from './globals/Footer';
+import CartWidget from './globals/CartWidget';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <div className="App">
         <header>
           <Navbar />
+          <CartWidget />
         </header>
         <main>
           <Switch>
@@ -25,7 +27,7 @@ export default function App() {
             </Route>
           </Switch>
         </main>
-      <Footer/>
+        <Footer/>
       </div>
     </BrowserRouter>
   );

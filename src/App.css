@@ -4,6 +4,7 @@
 body{
   background-color: rgb(250, 226, 226);
 }
+
 .App {
   text-align: center;
 }
@@ -22,15 +23,6 @@ body{
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 #catnav{
@@ -88,14 +80,13 @@ ul#catnav li {
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  min-height: 400px;
 }
 
 main{
   align-content: center;
   background-color: rgb(250, 226, 226);
-  height: 100%;
   margin-bottom:1rem;
+  min-height: 100vh;
 }
 
 .text-link{
@@ -214,4 +205,9 @@ main{
 	color:#FFFFFF;
 	box-shadow: none;
 	border: none;
+}
+
+.cart-widget{
+  display: none;
+  color:grey;
 }

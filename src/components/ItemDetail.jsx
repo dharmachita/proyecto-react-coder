@@ -1,21 +1,15 @@
 import {Link} from 'react-router-dom';
 import ItemCount from '../globals/ItemCount';
+import img from '../assets/300.png';
 
 export default function ItemDetail(props){
-    const {titulo,bigImg,precio,alt,stock,categoria,descripcion} = props;
-    
-    /*
-    Mejorar los estilos del ItemDetail
-    Se necesita agregar un button para agregar al carrito y 
-    el contador de productos
-    */
-    
+    const {titulo,precio,alt,stock,categoria,descripcion} = props;
     return (
         <>
             <h2>{titulo}</h2>
             <div className="detail-img-desc">
                 <figure>
-                    <img src={bigImg} alt={alt}/>
+                    <img src={img} alt={alt}/>
                     <div className="under-img">
                         <figcaption className="fig-cap">Cantidad en Stock: <span>{stock}</span></figcaption>
                     <ItemCount 
