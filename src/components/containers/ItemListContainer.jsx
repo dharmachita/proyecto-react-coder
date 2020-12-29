@@ -14,8 +14,9 @@ export default function ItemListContainer(){
     const [error,setError] = useState();
     
     //Filtrar por categoria
-    const isCategory = catid?api.filter(prods=>prods.categoria===catid):api;
     const catName=catid&&categorias.find(cat=>cat.cat===catid);
+    const isCategory = catName?api.filter(prods=>prods.categoria===catid):api;
+    
 
     //Emulación de búsqueda de datos en API
     const buscarEnApi = new Promise((resolve,reject)=>{
@@ -42,7 +43,7 @@ export default function ItemListContainer(){
     return(
         
             <>
-                <h2>{catid?catName.titulo:`Productos Destacados`}</h2>
+                <h2>{catName?catName.titulo:`Productos Destacados`}</h2>
                 <div className="itemList"> 
                     {error?
                 	    <Error 

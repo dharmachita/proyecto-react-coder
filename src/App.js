@@ -5,6 +5,7 @@ import ItemListContainer from './components/containers/ItemListContainer';
 import ItemDetailContainer from './components/containers/ItemDetailContainer';
 import Footer from './globals/Footer';
 import CartWidget from './globals/CartWidget';
+import Cuatrocientoscuatro from './globals/404';
 
 export default function App() {
   return (
@@ -24,6 +25,9 @@ export default function App() {
             </Route>
             <Route path="/item/:itemid">
               <ItemDetailContainer />
+            </Route>
+            <Route path="*">
+              <Cuatrocientoscuatro />
             </Route>
           </Switch>
         </main>
