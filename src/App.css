@@ -204,10 +204,25 @@ main{
 	align-items:center;
 	color:#FFFFFF;
 	box-shadow: none;
-	border: none;
+  border: none;
+  position: absolute;
+}
+
+.color-clicked{
+  background-color:#584eb3;
+}
+
+.color-clicked:hover{
+  background-color:#8e82f7;
+  color:black;
 }
 
 .cart-widget{
   display: none;
   color:grey;
+}
+
+.button-container{
+  position:relative;
+  height: 90px;
 }

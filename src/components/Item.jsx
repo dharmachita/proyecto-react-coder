@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import '../assets/style.css';
 import ItemCount from '../globals/ItemCount';
 import img from '../assets/150.png';
+import ButtonAddCart from '../globals/ButtonAddCart';
 
 export default function Item(props){
     const {	id,title,price,alt,stock } = props
@@ -20,9 +21,9 @@ export default function Item(props){
                 stock={stock}
                 init={stock<1?"0":"1"}
             />
-            <button className={`cart-button ${stock<1&&"dis"}`}>
-                {stock<1?"Producto Agotado":"Agregar al carrito"}
-            </button>
+            <ButtonAddCart 
+                stock={stock}
+            />
         </div>
         
     )

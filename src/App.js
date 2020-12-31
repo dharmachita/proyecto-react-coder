@@ -5,7 +5,9 @@ import ItemListContainer from './components/containers/ItemListContainer';
 import ItemDetailContainer from './components/containers/ItemDetailContainer';
 import Footer from './globals/Footer';
 import CartWidget from './globals/CartWidget';
-import Cuatrocientoscuatro from './globals/404';
+import Cuatrocientoscuatro from './components/404';
+import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 export default function App() {
   return (
@@ -25,6 +27,12 @@ export default function App() {
             </Route>
             <Route path="/item/:itemid">
               <ItemDetailContainer />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            <Route path="/checkout">
+              <Checkout />
             </Route>
             <Route path="*">
               <Cuatrocientoscuatro />
