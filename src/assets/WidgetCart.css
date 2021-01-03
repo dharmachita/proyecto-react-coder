@@ -13,6 +13,9 @@
     z-index: 2;
     box-shadow: -0.3rem 0 0.3rem rgba(0, 0, 0, 0.2);
     transition: right 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 .widgetCart>p{
   font-size: 20px;
@@ -39,6 +42,7 @@
     background-color: var(--primary);
     color: #242424;
     border: 1px solid var(--primary);
+    margin:1rem;
   }
   
   .btn--outline {
@@ -47,6 +51,7 @@
     padding: 8px 20px;
     border: 1px solid var(--primary);
     transition: all 0.3s ease-out;
+    margin:1rem;
   }
   
   .btn--medium {
@@ -66,12 +71,16 @@
     color: #242424;
     transition: 250ms;
   }
+  .button-container{
+    align-content: center;
+    align-items: center;
+  }
   
   @media screen and (max-width: 760px) {
     .widgetCart{
         width: 100vw;
     }
     .close {
-        display: none;
+        right: -110%;
       }
   }

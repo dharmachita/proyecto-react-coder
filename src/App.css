@@ -226,3 +226,14 @@ main{
   position:relative;
   height: 90px;
 }
+
+@media screen and (max-width: 760px) {
+  .shadow:hover{
+    text-shadow: 1px 1px rgb(228, 76, 76), 2px 2px #0dc7c1, 3px 3px rgb(99, 204, 13), 4px 4px #63ce0c;
+    transform: scale(1.3);
+    transition: all 0.5s ease 0.1s;
+  }
+  .logo{
+    font-size: 35px;
+  }
+}
