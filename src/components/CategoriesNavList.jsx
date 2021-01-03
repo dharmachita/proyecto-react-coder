@@ -2,8 +2,6 @@ import categorias from '../utils/categories.json';
 import {NavLink} from 'react-router-dom';
 
 export default function CatNavList(){
-
-
     return(
         <ul id="catnav">
         {
