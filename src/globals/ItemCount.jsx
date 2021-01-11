@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import {useState,useContext,useEffect} from 'react';
+import {CartContext} from '../contexts/CartContext';
 
 export default function AddRemoveButton(props){
     const {stock, init} = props;
     const [count, setCount] = useState(parseInt(init));
-  
+    const {itemsCart,setItemsCart}=useContext(CartContext);
+    
+    useEffect(()=>{
+        setItemsCart({
+            ...itemsCart,
+            cantidadAgregar:count
+        })
+        // eslint-disable-next-line
+    },[count])
 
     return(
     <>

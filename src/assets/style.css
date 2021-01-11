@@ -20,6 +20,7 @@
 
 .img-box{
 	height:170px;
+	margin-top:1rem;
 }
 
 .img-box img{
@@ -40,8 +41,9 @@
 	flex-direction:column;
 	align-items:center;
 	box-sizing:border-box;
-	margin-top:-15px;
 	color: brown;
+	margin-top:-15px;
+	display: inline;
 }
 
 .price{

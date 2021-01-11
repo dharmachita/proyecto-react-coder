@@ -206,6 +206,7 @@ main{
 	box-shadow: none;
   border: none;
   position: absolute;
+  cursor: pointer;
 }
 
 .color-clicked{
@@ -225,6 +226,12 @@ main{
 .button-container{
   position:relative;
   height: 90px;
+}
+.no-stock-title{
+  color:rgb(233, 229, 229);
+  font-size: small;
+  display: inline;
+  background-color: rgb(110, 50, 50);
 }
 
 @media screen and (max-width: 760px) {

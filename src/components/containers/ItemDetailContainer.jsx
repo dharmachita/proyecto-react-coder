@@ -38,6 +38,7 @@ export default function ItemDetailContainer(){
                     <Bars fill="brown"/>:   
                         producto?
                         <ItemDetail 
+                            id={producto.id}
                             titulo={producto.titulo}
                             bigImg={producto.bigImg}
                             precio={producto.precio}

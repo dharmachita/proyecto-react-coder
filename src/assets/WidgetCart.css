@@ -56,12 +56,12 @@
   
   .btn--medium {
     padding: 8px 20px;
-    font-size: 18px;
+    font-size: 15px;
   }
   
   .btn--large {
     padding: 12px 26px;
-    font-size: 20px;
+    font-size: 18px;
   }
   
   .btn--large:hover,
@@ -75,7 +75,20 @@
     align-content: center;
     align-items: center;
   }
+
+  .widget-card{
+    border-radius: 0.5;
+    border-color: antiquewhite;
+    border-style: solid;
+    font-size: medium;
+    margin: 1rem;
+  }
+
+  .cart-icon{
+    cursor: pointer;
+  }
   
+
   @media screen and (max-width: 760px) {
     .widgetCart{
         width: 100vw;

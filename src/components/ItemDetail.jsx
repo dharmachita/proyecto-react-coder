@@ -19,7 +19,7 @@ export default function ItemDetail(props){
                             init={stock<1?"0":"1"}
                         />
                         <ButtonAddCart 
-                            stock={stock}
+                            item={props}
                         />
                     </div>
                     
