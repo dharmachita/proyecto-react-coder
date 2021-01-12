@@ -5,7 +5,7 @@ import ItemListContainer from './components/containers/ItemListContainer';
 import ItemDetailContainer from './components/containers/ItemDetailContainer';
 import Footer from './globals/Footer';
 import Cuatrocientoscuatro from './components/404';
-import Cart from './components/Cart';
+import Cart from './components/containers/Cart';
 import Checkout from './components/Checkout';
 import CartProvider from './contexts/CartContext';
 
