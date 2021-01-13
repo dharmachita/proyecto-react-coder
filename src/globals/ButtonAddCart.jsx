@@ -4,29 +4,8 @@ import {CartContext} from '../contexts/CartContext';
 
 export default function ButtonAddCart({item}){
     const [click,setClick] = useState(false);
-    const {itemsCart,setItemsCart}=useContext(CartContext);
+    const {addToCart}=useContext(CartContext);
     let history = useHistory();
-
-    const addToCart = () => {
-        itemsCart.items.filter(prod=>prod.producto.id===item.id).length===0?
-        setItemsCart({
-            ...itemsCart,
-            items:[...itemsCart.items,{producto:item,cantidad:itemsCart.cantidadAgregar}],
-            totalQty: itemsCart.totalQty+itemsCart.cantidadAgregar
-        }):
-        isInCart()
-    }
-
-    const isInCart = ()=>{
-        const index=itemsCart.items.findIndex(find=>find.producto.id===item.id);
-        const arr = itemsCart.items;
-        arr[index] = {...arr[index], cantidad: arr[index].cantidad+itemsCart.cantidadAgregar}
-        setItemsCart({
-            ...itemsCart,
-            items:arr,
-            totalQty: itemsCart.totalQty+itemsCart.cantidadAgregar
-        })
-    }
 
     const handleClickGoCart =(e)=>{ 
         if(click){
@@ -34,7 +13,7 @@ export default function ButtonAddCart({item}){
         }
         e.target.innerText="Finalizar Compra";
         e.target.className="add-button color-clicked";
-        addToCart(item,);
+        addToCart(item);
         setClick(true);
     }
 
