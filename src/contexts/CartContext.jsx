@@ -9,11 +9,23 @@ const CartContextProvider = ({children})=>{
         totalQty:0
     });
 
+    const eliminarProducto = (itm,qty)=>{
+        const index=itemsCart.items.findIndex(find=>find.producto.id===itm.id);
+        const arr = itemsCart.items;
+        arr.splice(index,1)
+        setItemsCart({
+            items:arr,
+            totalQty:itemsCart.totalQty-qty,
+            cantidadAgergar:0
+        })
+    }
+
     return(
         <CartContext.Provider
             value={{
                 itemsCart,
-                setItemsCart
+                setItemsCart,
+                eliminarProducto
             }}
         >
             {children}
