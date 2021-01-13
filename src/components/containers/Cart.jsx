@@ -3,14 +3,8 @@ import {CartContext} from '../../contexts/CartContext';
 import ItemCart from '../ItemCart';
 
 export default function Cart(){
-    const {itemsCart,setItemsCart}=useContext(CartContext);
-    const vaciarCarrito = ()=>{
-        setItemsCart({
-            items:[],
-            cantidadAgregar:0,
-            totalQty:0
-        });
-    }
+    const {itemsCart,vaciarCarrito}=useContext(CartContext);
+    
     return(
         <div>
             <h2>Carrito de Compras</h2>
