@@ -9,7 +9,7 @@ export default function ItemDetail(props){
         <>
             <h2>{titulo}</h2>
             <div className="detail-img-desc">
-                <figure>
+                <figure className="img-container">
                     <img src={img} alt={alt}/>
                     <div className="under-img">
                         <figcaption className="fig-cap">Cantidad en Stock: <span>{stock}</span></figcaption>

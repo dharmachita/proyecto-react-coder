@@ -240,6 +240,11 @@ main{
   padding: 1rem;
 }
 
+.img-container{
+  border: #282c34 solid;
+  border-radius: 2%;
+}
+
 @media screen and (max-width: 760px) {
   .shadow:hover{
     text-shadow: 1px 1px rgb(228, 76, 76), 2px 2px #0dc7c1, 3px 3px rgb(99, 204, 13), 4px 4px #63ce0c;

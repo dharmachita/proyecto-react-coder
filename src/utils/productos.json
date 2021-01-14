@@ -2,8 +2,8 @@
     {   
         "id":1,
         "titulo":"Cuaderno",
-        "url":"../assets/150.png",
-        "bigImg":"../assets/300.png",
+        "url":"/assets/150.png",
+        "bigImg":"/assets/300.png",
         "precio":"250",
         "alt":"descripción",
         "stock": 8,

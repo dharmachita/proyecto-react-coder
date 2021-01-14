@@ -40,7 +40,7 @@ export default function ItemDetailContainer(){
                         <ItemDetail 
                             id={producto.id}
                             titulo={producto.titulo}
-                            bigImg={producto.bigImg}
+                            image={producto.bigImg}
                             precio={producto.precio}
                             alt={producto.alt}
                             stock={producto.stock}
