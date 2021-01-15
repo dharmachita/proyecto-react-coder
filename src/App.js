@@ -1,13 +1,14 @@
-import './App.css';
-import Navbar from './globals/Navbar';
-import {BrowserRouter,Switch,Route} from 'react-router-dom';
-import ItemListContainer from './components/containers/ItemListContainer';
-import ItemDetailContainer from './components/containers/ItemDetailContainer';
-import Footer from './globals/Footer';
-import Cuatrocientoscuatro from './components/404';
-import Cart from './components/containers/Cart';
-import Checkout from './components/Checkout';
-import CartProvider from './contexts/CartContext';
+import React from "react";
+import "./App.css";
+import Navbar from "./globals/Navbar";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ItemListContainer from "./components/containers/ItemListContainer";
+import ItemDetailContainer from "./components/containers/ItemDetailContainer";
+import Footer from "./globals/Footer";
+import Cuatrocientoscuatro from "./components/404";
+import Cart from "./components/containers/Cart";
+import Checkout from "./components/Checkout";
+import CartProvider from "./contexts/CartContext";
 
 export default function App() {
   return (
@@ -39,7 +40,7 @@ export default function App() {
               </Route>
             </Switch>
           </main>
-          <Footer/>
+          <Footer />
         </div>
       </BrowserRouter>
     </CartProvider>

@@ -1,6 +1,4 @@
-export default function Error({mensaje}){
-
-    return(
-        <p>{mensaje}</p>
-    )
+import React from "react";
+export default function Error({ mensaje }) {
+  return <p>{mensaje}</p>;
 }
