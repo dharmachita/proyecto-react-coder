@@ -38,6 +38,7 @@ export default function ItemListContainer() {
         setLoading(false);
         console.log("Request finalizada");
       });
+      // eslint-disable-next-line
   }, []);
 
   const dcmts = (qs) => {
@@ -70,7 +71,7 @@ export default function ItemListContainer() {
               <Item
                 key={producto.id}
                 id={producto.id}
-                img=""
+                img={producto.smImg}
                 alt={producto.titulo}
                 title={producto.titulo}
                 price={producto.precio}
