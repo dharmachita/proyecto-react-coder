@@ -1,70 +1,78 @@
-import {Bars} from 'svg-loaders-react';
-import api from '../../utils/productos.json';
-import {useState,useEffect} from 'react';
-import Item from '../Item';
-import Error from '../Error';
-import {useParams} from 'react-router-dom';
-import categorias from '../../utils/categories.json';
+import React from "react";
+import { Bars } from "svg-loaders-react";
+import { useState, useEffect } from "react";
+import Item from "../Item";
+import Error from "../Error";
 
-export default function ItemListContainer(){
-	 
-    const {catid} = useParams();
-    const [productos,setProductos] = useState([]);
-    const [isLoading,setLoading] = useState(true);
-    const [error,setError] = useState();
-    
-    //Filtrar por categoria
-    const catName=catid&&categorias.find(cat=>cat.cat===catid);
-    const isCategory = catName?api.filter(prods=>prods.categoria===catid):api;
-    
+export default function ItemListContainer({filter}) {
 
-    //Emulación de búsqueda de datos en API
-    const buscarEnApi = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        true?resolve(isCategory):reject("Error 500");
-            }, 2000)
-    })
-    
-    //useEffect para ejecutar la llamada cuando se monta el componente
-    useEffect(()=>{
-        setLoading(true);
-        buscarEnApi
-        .then(result=>{
-            setProductos(result);
-            setLoading(false);
-        })
-        .catch((err)=>{
-            console.error(err);
-            setError("Lo sentimos, no hemos podido cargar los productos :( ");
-        })
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    },[catid])
-        	 
-    return(
-        
-            <>
-                <h2>{catName?catName.titulo:`Productos Destacados`}</h2>
-                <div className="itemList"> 
-                    {error?
-                	    <Error 
-                            mensaje={error}
-						/>:
-                        !isLoading?
-                        productos.map(producto=>
-							<Item 
-								key={producto.id}
-								id={producto.id}
-								title={producto.titulo}
-								img={producto.url}
-								price={producto.precio}
-								alt={producto.alt} 
-								stock={producto.stock}
-							/>
-                        ):
-                        <Bars fill="brown"/>
-                    }
-                </div>
-			</>
- 
-    ) 
-}
+  const [productos, setProductos] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [err, setError] = useState(false);
+  const [msj, setMsj] = useState();
+  const [emp, setEmpty] = useState(false);
+  
+  useEffect(() => {
+    setLoading(true);
+    filter
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.size === 0 ? empty() : dcmts(querySnapshot);
+      })
+      .catch((e) => {
+        error(e);
+      })
+      .finally(() => {
+        setLoading(false);
+        console.log("Request finalizada");
+      });
+      // eslint-disable-next-line
+  }, [filter]);
+
+  const dcmts = (qs) => {
+    const documents = qs.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setProductos(documents);
+  };
+
+  const empty = (e) => {
+    setMsj("No hemos encontrado productos para mostrar");
+    setProductos([]);
+    setEmpty(true);
+  };
+
+  const error = (e) => {
+    setMsj("Se ha producido un error en la búsqueda. Intente mas tarde");
+    setError(true);
+    console.error("Se produjo un error", e);
+  };
+
+  
+  return (
+    <>
+      {
+        <div className="itemList">
+        {!isLoading ? (
+          err ? (
+            <Error mensaje={msj} />
+          ) : emp ? (
+            <p>{msj}</p>
+          ) : (
+            productos.map((producto) => (
+              <Item
+                key={producto.id}
+                id={producto.id}
+                img={producto.smImg}
+                alt={producto.titulo}
+                title={producto.titulo}
+                price={producto.precio}
+                stock={producto.stock}
+              />
+            ))
+          )
+        ) : (
+          <Bars fill="brown" />
+        )}
+      </div>
+    }
+</>      
+);}
