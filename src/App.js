@@ -9,6 +9,7 @@ import Cuatrocientoscuatro from "./components/404";
 import Cart from "./components/containers/Cart";
 import Checkout from "./components/Checkout";
 import CartProvider from "./contexts/CartContext";
+//import Upload form "./utils/Upload.jsx";
 
 export default function App() {
   return (
@@ -35,6 +36,11 @@ export default function App() {
               <Route path="/checkout">
                 <Checkout />
               </Route>
+              {/*
+                <Route path="/upload">
+                  <Upload />
+              </Route>
+              */}
               <Route path="*">
                 <Cuatrocientoscuatro />
               </Route>
