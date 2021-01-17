@@ -2,13 +2,14 @@ import React from "react";
 import "./App.css";
 import Navbar from "./globals/Navbar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ItemListContainer from "./components/containers/ItemListContainer";
 import ItemDetailContainer from "./components/containers/ItemDetailContainer";
 import Footer from "./globals/Footer";
 import Cuatrocientoscuatro from "./components/404";
 import Cart from "./components/containers/Cart";
 import Checkout from "./components/Checkout";
 import CartProvider from "./contexts/CartContext";
+import Home from "./components/Home";
+import Categories from "./components/Categories";
 //import Upload form "./utils/Upload.jsx";
 
 export default function App() {
@@ -22,10 +23,10 @@ export default function App() {
           <main>
             <Switch>
               <Route exact path="/">
-                <ItemListContainer />
+                <Home />
               </Route>
               <Route path="/categoria/:caturl">
-                <ItemListContainer />
+                <Categories />
               </Route>
               <Route path="/item/:itemid">
                 <ItemDetailContainer />
