@@ -4,11 +4,11 @@ import smImg from "../assets/150.png";
 import lgImg from "../assets/300.png";
 import { ThreeDots } from "svg-loaders-react";
 
-export default function Imagen({ src, alt, fld, size}) {
+export default function Imagen({ src, alt, fld, size='sm'}) {
   const [url, setUrl] = useState(smImg);
   const [loading, setLoading] = useState(true);
   const getSize = ()=>{
-    size==='sm'?setUrl(smImg):setUrl(lgImg)
+    size==='sm'?setUrl(smImg):setUrl(lgImg);
   }
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Imagen({ src, alt, fld, size}) {
       {loading ? (
         <ThreeDots fill="red" size="small"/>
       ) : (
-        <img widht="" height="" src={url} alt={alt} />
+        <img src={url} alt={alt} />
       )}
     </>
   );
