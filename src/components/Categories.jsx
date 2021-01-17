@@ -1,8 +1,7 @@
 import React, {useEffect,useState} from "react";
 import ItemListContainer from "./containers/ItemListContainer";
-import { useParams, Link} from 'react-router-dom';
+import { useParams, Link, useHistory} from 'react-router-dom';
 import { getFirestore } from "../db/index";
-import { useHistory } from "react-router-dom";
 
 
 export default function Categories() {

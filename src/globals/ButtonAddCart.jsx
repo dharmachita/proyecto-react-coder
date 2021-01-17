@@ -11,11 +11,12 @@ export default function ButtonAddCart({ item }) {
   const handleClickGoCart = (e) => {
     if (click) {
       history.push("/cart");
+    }else{
+      e.target.innerText = "Finalizar Compra";
+      e.target.className = "add-button color-clicked";
+      addToCart(item);
+      setClick(true);
     }
-    e.target.innerText = "Finalizar Compra";
-    e.target.className = "add-button color-clicked";
-    addToCart(item);
-    setClick(true);
   };
 
   return (

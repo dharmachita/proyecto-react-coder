@@ -4,20 +4,22 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Bars } from "svg-loaders-react";
 import { getFirestore } from "../../db";
+import { Link } from "react-router-dom";
 
 export default function ItemDetailContainer() {
   const [producto, setProducto] = useState();
   const [isLoading, setLoading] = useState(true);
+  const [isEmpty, setEmpty] = useState(true);
   const { itemid } = useParams();
   const [msj, setMsj] = useState();
 
   useEffect(() => {
     const db = getFirestore();
-    const itCol = db.collection("products");
+    const itCol = db.collection("products").doc(itemid);
     itCol
       .get()
       .then((querySnapshot) => {
-        querySnapshot.size === 0 ? empty() : dcmts(querySnapshot);
+        !querySnapshot.exists ? empty() : dcmts(querySnapshot);
       })
       .catch((e) => {
         error(e);
@@ -30,12 +32,14 @@ export default function ItemDetailContainer() {
   }, []);
   
   const dcmts = (qs) => {
-    const documents = qs.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setProducto(documents.find((prod) => prod.id === itemid));
+    const document = { ...qs.data(), id: qs.id };
+    setEmpty(false);
+    setProducto(document);
   };
 
   const empty = (e) => {
-    setMsj("No hemos encontrado productos para mostrar");
+    setEmpty(true)
+    setMsj("El producto solicitado no existe");
   };
 
   const error = (e) => {
@@ -47,7 +51,15 @@ export default function ItemDetailContainer() {
     <div className="detail-cont">
       {isLoading ? (
         <Bars fill="brown" />
-      ) : producto ? (
+      ) : 
+      isEmpty ?
+      (<div>
+        <h3>{msj}</h3>
+        <Link to={'/'}>
+          <span className="category-span">Vovler a la página principal</span>
+        </Link> 
+      </div>):
+      (
         <ItemDetail
           id={producto.id}
           titulo={producto.titulo}
@@ -58,11 +70,11 @@ export default function ItemDetailContainer() {
           categoria={producto.catId}
           descripcion={producto.descripcion}
         />
-      ) : (
-        <div>
-          <h3>{msj}</h3>
-        </div>
-      )}
+      ) 
+      }
     </div>
   );
 }
+
+
+
