@@ -4,8 +4,6 @@ import { getFirestore } from "../db";
 
 export default function CatNavList() {
   const [categorias, setCategorias] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [msj, setMsj] = useState();
 
   useEffect(() => {
     const db = getFirestore();
@@ -13,15 +11,11 @@ export default function CatNavList() {
     itCol
       .get()
       .then((querySnapshot) => {
-        querySnapshot.size === 0 ? empty() : dcmts(querySnapshot);
+        querySnapshot.size === 0 ? console.log("No hay categorias") : dcmts(querySnapshot);
       })
       .catch((e) => {
         error(e);
       })
-      .finally(() => {
-        setLoading(false);
-        console.log("Request finalizada");
-      });
       // eslint-disable-next-line
   }, []);
   
@@ -30,12 +24,7 @@ export default function CatNavList() {
     setCategorias(documents);
   };
 
-  const empty = (e) => {
-    setMsj("No hemos encontrado productos para mostrar");
-  };
-
   const error = (e) => {
-    setMsj("Se ha producido un error en la búsqueda. Intente mas tarde");
     console.error("Se produjo un error", e);
   };
 

@@ -23,7 +23,7 @@ export default function App() {
               <Route exact path="/">
                 <ItemListContainer />
               </Route>
-              <Route path="/categoria/:catid">
+              <Route path="/categoria/:caturl">
                 <ItemListContainer />
               </Route>
               <Route path="/item/:itemid">
