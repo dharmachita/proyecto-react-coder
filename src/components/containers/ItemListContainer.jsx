@@ -14,6 +14,7 @@ export default function ItemListContainer({filter}) {
   
   useEffect(() => {
     setLoading(true);
+    setEmpty(false);
     filter
       .get()
       .then((querySnapshot) => {

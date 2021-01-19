@@ -1,10 +1,13 @@
-import React, {useEffect,useState} from "react";
+import React, {useEffect,useState,useLayoutEffect} from "react";
 import ItemListContainer from "./containers/ItemListContainer";
 import { useParams, Link, useHistory} from 'react-router-dom';
 import { getFirestore } from "../db/index";
 
 
 export default function Categories() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  });
   const {caturl} = useParams();
   const db = getFirestore();
   const [filter,setFilter]=useState(db.collection("products"));
@@ -41,7 +44,7 @@ export default function Categories() {
           <div></div>:
           isCateg?
             <>
-            <h1>{categoria[0].titulo}</h1>
+            <h1>***{categoria[0].titulo}***</h1>
             <ItemListContainer 
                 filter={filter}
             />

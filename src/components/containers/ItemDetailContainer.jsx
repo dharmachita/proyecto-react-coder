@@ -1,7 +1,7 @@
 import React from "react";
 import ItemDetail from "../ItemDetail";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useLayoutEffect } from "react";
 import { Bars } from "svg-loaders-react";
 import { getFirestore } from "../../db";
 import { Link } from "react-router-dom";
@@ -12,6 +12,9 @@ export default function ItemDetailContainer() {
   const [isEmpty, setEmpty] = useState(true);
   const { itemid } = useParams();
   const [msj, setMsj] = useState();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  });
 
   useEffect(() => {
     const db = getFirestore();

@@ -10,6 +10,7 @@ import Checkout from "./components/Checkout";
 import CartProvider from "./contexts/CartContext";
 import Home from "./components/Home";
 import Categories from "./components/Categories";
+import SuccessCheckout from "./components/SuccessCheckout"; 
 //import Upload form "./utils/Upload.jsx";
 
 export default function App() {
@@ -42,6 +43,9 @@ export default function App() {
                   <Upload />
               </Route>
               */}
+              <Route path="/scheckout">
+                <SuccessCheckout />
+              </Route>
               <Route path="*">
                 <Cuatrocientoscuatro />
               </Route>

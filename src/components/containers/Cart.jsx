@@ -1,19 +1,38 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext,useLayoutEffect } from "react";
+import {useHistory,Link} from 'react-router-dom';
 import { CartContext } from "../../contexts/CartContext";
 import ItemCart from "../ItemCart";
+import './Cart.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cart() {
   const { itemsCart, vaciarCarrito } = useContext(CartContext);
+  let history = useHistory();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  });
+  const checkoutHandler = ()=>{
+    history.push('/checkout');
+  }
 
   return (
     <div>
       <h2>Carrito de Compras</h2>
       {itemsCart.items.length === 0 ? (
+        <>
         <p>No hay productos en el carrito</p>
+        <p>Volver al <Link to={'/'}>Home</Link></p>
+        </>
       ) : (
         <div>
-          <button onClick={vaciarCarrito}>Vaciar Carrito</button>
+          <div>
+            <button className='cart-btns empty' onClick={vaciarCarrito}>
+              Vaciar Carrito <FontAwesomeIcon 
+                size="lg"
+                icon={faTrash} />  
+              </button>
+          </div>
           {itemsCart.items.map((item) => (
             <ItemCart
               key={item.producto.id}
@@ -21,6 +40,13 @@ export default function Cart() {
               cantidad={item.cantidad}
             />
           ))}
+            <div>
+              <button className='cart-btns finalize' onClick={checkoutHandler}>
+                Finalizar Compra <FontAwesomeIcon 
+                size="lg"
+                icon={faCreditCard} />  
+              </button>
+            </div>
         </div>
       )}
     </div>

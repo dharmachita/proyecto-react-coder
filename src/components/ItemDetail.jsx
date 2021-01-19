@@ -33,7 +33,7 @@ export default function ItemDetail(props) {
         </div>
       </div>
       <p className="mas-prod">
-        Podés encontrar más productos similares en
+        Podés encontrar más productos similares en -->
         <Link to={`/categoria/${categoria}`}>
           <span className="category-span">{` ${categoria}`}</span>
         </Link>

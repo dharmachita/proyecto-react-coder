@@ -234,12 +234,6 @@ main{
   background-color: rgb(110, 50, 50);
 }
 
-.item-cart{
-  border: #282c34 solid;
-  margin: 2rem;
-  padding: 1rem;
-}
-
 .img-container{
   border: #282c34 solid;
   border-radius: 2%;
