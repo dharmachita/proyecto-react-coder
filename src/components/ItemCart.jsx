@@ -9,7 +9,7 @@ import Imagen from '../globals/Imagen';
 export default function ItemCart({ item, cantidad }) {
   const db = getFirestore();
   const [url,setUrl]=useState("");
-  const { eliminarProducto } = useContext(CartContext);
+  const { eliminarProducto, actualizaTotal } = useContext(CartContext);
   const [ loading, setLoading ] = useState(true);
    
   useEffect(()=>{  
@@ -22,6 +22,7 @@ export default function ItemCart({ item, cantidad }) {
       }).finally(()=>{
         setLoading(false);
       })
+    actualizaTotal(item.precio*cantidad)
     // eslint-disable-next-line
   },[])
 
@@ -37,6 +38,8 @@ export default function ItemCart({ item, cantidad }) {
       <div>
         <h2>{item.titulo}</h2>
         <p>{`Cantidad: ${cantidad} ${cantidad<2?"unidad":"unidades"}`}</p>
+        <p>Precio por unidad: ${item.precio}</p>
+        <p><strong>Total:</strong> ${item.precio*cantidad}</p>
         <button className='cart-btns delete' onClick={() => eliminarProducto(item, cantidad)}>
           Eliminar Producto <FontAwesomeIcon 
                   size="lg"

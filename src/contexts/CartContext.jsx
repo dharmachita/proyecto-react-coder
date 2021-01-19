@@ -1,16 +1,18 @@
 import React from "react";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState,useEffect } from "react";
 export const CartContext = createContext();
 
 
-const it = JSON.parse(window.sessionStorage.getItem('items'));
-const qt = parseInt(window.sessionStorage.getItem('totalQty'));
 
 const CartContextProvider = ({ children }) => {
+
+  const wss=window.sessionStorage;
+
   const [itemsCart, setItemsCart] = useState({
-    items: it,
+    items: JSON.parse(wss.getItem('items'))||[],
     cantidadAgregar: 0,
-    totalQty: qt
+    totalQty: parseInt(wss.getItem('totalQty'))||0,
+    precioTotal: parseInt(wss.getItem('precioTotal'))||0
   });
 
   const eliminarProducto = (itm, qty) => {
@@ -22,7 +24,8 @@ const CartContextProvider = ({ children }) => {
     setItemsCart({
       items: arr,
       totalQty: itemsCart.totalQty - qty,
-      cantidadAgergar: 0
+      cantidadAgergar: 0,
+      precioTotal:itemsCart.precioTotal-(itm.precio*qty)
     });
   };
 
@@ -30,7 +33,8 @@ const CartContextProvider = ({ children }) => {
     setItemsCart({
       items: [],
       cantidadAgregar: 0,
-      totalQty: 0
+      totalQty: 0,
+      precioTotal:0
     });
   };
 
@@ -63,12 +67,20 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
+  const actualizaTotal = (precio)=>{
+    setItemsCart({
+      ...itemsCart,
+      precioTotal:itemsCart.precioTotal+precio
+    })
+  }
+
   useEffect(()=>{
     window.sessionStorage.setItem('totalQty',itemsCart.totalQty);
     window.sessionStorage.setItem('items',JSON.stringify(itemsCart.items));
-    // eslint-disable-next-line
-  },[itemsCart.items])
+    window.sessionStorage.setItem('precioTotal',JSON.stringify(itemsCart.precioTotal));
 
+    // eslint-disable-next-line
+  },[itemsCart])
 
   return (
     <CartContext.Provider
@@ -77,7 +89,8 @@ const CartContextProvider = ({ children }) => {
         setItemsCart,
         eliminarProducto,
         vaciarCarrito,
-        addToCart
+        addToCart,
+        actualizaTotal
       }}
     >
       {children}

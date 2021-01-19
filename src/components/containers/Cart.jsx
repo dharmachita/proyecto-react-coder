@@ -26,6 +26,7 @@ export default function Cart() {
         </>
       ) : (
         <div>
+          <div>El total de su carrito es ${itemsCart.precioTotal}</div>
           <div>
             <button className='cart-btns empty' onClick={vaciarCarrito}>
               Vaciar Carrito <FontAwesomeIcon 
