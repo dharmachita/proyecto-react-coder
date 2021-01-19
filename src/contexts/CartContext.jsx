@@ -1,12 +1,16 @@
 import React from "react";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
+
+
+const it = JSON.parse(window.sessionStorage.getItem('items'));
+const qt = parseInt(window.sessionStorage.getItem('totalQty'));
 
 const CartContextProvider = ({ children }) => {
   const [itemsCart, setItemsCart] = useState({
-    items: [],
+    items: it,
     cantidadAgregar: 0,
-    totalQty: 0
+    totalQty: qt
   });
 
   const eliminarProducto = (itm, qty) => {
@@ -58,6 +62,13 @@ const CartContextProvider = ({ children }) => {
       totalQty: itemsCart.totalQty + itemsCart.cantidadAgregar
     });
   };
+
+  useEffect(()=>{
+    window.sessionStorage.setItem('totalQty',itemsCart.totalQty);
+    window.sessionStorage.setItem('items',JSON.stringify(itemsCart.items));
+    // eslint-disable-next-line
+  },[itemsCart.items])
+
 
   return (
     <CartContext.Provider
