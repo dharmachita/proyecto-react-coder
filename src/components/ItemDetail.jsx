@@ -29,7 +29,7 @@ export default function ItemDetail(props) {
           <h4>
             Precio: $<span>{precio}</span>
           </h4>
-          <p>{descripcion}</p>
+          <p className='desc'>{descripcion}</p>
         </div>
       </div>
       <p className="mas-prod">

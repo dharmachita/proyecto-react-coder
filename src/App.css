@@ -70,9 +70,16 @@ ul#catnav li {
 }
 
 .span-cart{
-  font-size: 15px;
+  font-weight: bold;
+  background-color: #60a004;
+  color: black;
+  border-radius: 50%;
   vertical-align: text-top;
-  padding-left: 0.5rem;
+  z-index: 1000;
+  padding: 0 2px;
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 1rem;
 }
 
 .itemList{
@@ -100,6 +107,7 @@ main{
 
 .footer{
   display:flex;
+  flex-direction: column;
   flex-wrap: wrap;
   background-color: #282c34;
   padding: 2rem;
@@ -174,6 +182,10 @@ main{
   width: 50%;
 }
 
+.desc{
+  text-align: justify;
+}
+
 .fig-cap{
   color:white;
 }
@@ -221,6 +233,7 @@ main{
 .cart-widget{
   display: none;
   color:grey;
+  z-index: 1001;
 }
 
 .button-container{
@@ -253,4 +266,16 @@ main{
   .logo{
     font-size: 35px;
   }
+
+  .detail-desc{
+    width: 80%;
+  }
+}
+
+.icons{
+  font-size: larger;
+}
+
+.icons>i{
+  padding: 0 0.5rem;
 }

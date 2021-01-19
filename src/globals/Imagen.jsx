@@ -24,12 +24,12 @@ export default function Imagen({ src, alt, fld, size='sm'}) {
   }, []);
 
   return (
-    <>
+    <div>
       {loading ? (
         <ThreeDots fill="red" size="small"/>
       ) : (
         <img src={url} alt={alt} />
       )}
-    </>
+    </div>
   );
 }
