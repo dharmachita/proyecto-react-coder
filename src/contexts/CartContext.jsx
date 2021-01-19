@@ -40,16 +40,21 @@ const CartContextProvider = ({ children }) => {
 
   const addToCart = (item) => {
     itemsCart.items.filter((prod) => prod.producto.id === item.id).length === 0
-      ? setItemsCart({
-          ...itemsCart,
-          items: [
-            ...itemsCart.items,
-            { producto: item, cantidad: itemsCart.cantidadAgregar }
-          ],
-          totalQty: itemsCart.totalQty + itemsCart.cantidadAgregar
-        })
-      : isInCart(item);
+      ? isNotInCart(item)
+      : isInCart(item);  
   };
+
+  const isNotInCart = (item)=>{
+    setItemsCart({
+      ...itemsCart,
+      items: [
+        ...itemsCart.items,
+        { producto: item, cantidad: itemsCart.cantidadAgregar }
+      ],
+      totalQty: itemsCart.totalQty + itemsCart.cantidadAgregar,
+      precioTotal:itemsCart.precioTotal+(item.precio*itemsCart.cantidadAgregar)
+    })
+  }
 
   const isInCart = (item) => {
     const index = itemsCart.items.findIndex(
@@ -63,16 +68,10 @@ const CartContextProvider = ({ children }) => {
     setItemsCart({
       ...itemsCart,
       items: arr,
-      totalQty: itemsCart.totalQty + itemsCart.cantidadAgregar
+      totalQty: itemsCart.totalQty + itemsCart.cantidadAgregar,
+      precioTotal:itemsCart.precioTotal+(item.precio*itemsCart.cantidadAgregar)
     });
   };
-
-  const actualizaTotal = (precio)=>{
-    setItemsCart({
-      ...itemsCart,
-      precioTotal:itemsCart.precioTotal+precio
-    })
-  }
 
   useEffect(()=>{
     window.sessionStorage.setItem('totalQty',itemsCart.totalQty);
@@ -89,8 +88,7 @@ const CartContextProvider = ({ children }) => {
         setItemsCart,
         eliminarProducto,
         vaciarCarrito,
-        addToCart,
-        actualizaTotal
+        addToCart
       }}
     >
       {children}
