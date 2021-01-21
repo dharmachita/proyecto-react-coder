@@ -1,6 +1,7 @@
 import React from 'react';
+import { Bars } from "svg-loaders-react";
 
-export default function CardData({pos,data,err,handleInputChange,cart}) {
+export default function CardData({pos,data,err,handleInputChange,cart,loading}) {
 
 
     return(
@@ -92,14 +93,18 @@ export default function CardData({pos,data,err,handleInputChange,cart}) {
 
             <div className={`${pos===3?'active':'hide'}`}>
             <h4>Confirmación de Productos</h4>
+            {
+            loading?
+            <Bars />:
             <div>
                 <ul>
                     {cart.items.map((it,index)=>(
                         <li key={index}>{it.producto.titulo} x {it.cantidad} u.</li>
                     ))}
                 </ul>
-                <div><p>Total a pagar: </p><span>${cart.precioTotal}</span></div>
+                <div><p>Total a pagar: </p><strong>${cart.precioTotal}</strong></div>
             </div>
+            }
             </div>
         </div>
     )

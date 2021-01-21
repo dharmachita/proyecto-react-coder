@@ -6,18 +6,28 @@ import CardPosition from './CardPosition';
 import CardButton from './CardButtons';
 import CardData from './CardData';
 import {CartContext} from '../contexts/CartContext';
+import {getFirestore} from '../db';
+
 
 export default function Checkout() {
   useLayoutEffect(() => {
     window.scrollTo(0, 0)
   },[]);
 
-  const { itemsCart } = useContext(CartContext);
+  //Items del carrito del contexto
+  const { itemsCart,vaciarCarrito } = useContext(CartContext);
+  const [loading,setLoading]=useState();
+
+  var itemsOrder=[]/*JSON.stringify(itemsCart.items)*/;
+
+  const db=getFirestore()
 
   const history=useHistory();
 
+  //Habilitador de siguiente
   const [next,setNext]=useState(false);
 
+  //Errores
   const [err,setErr]=useState({
     nombre:{error:false,msjError:''},
     apellido:{error:false,msjError:''},
@@ -29,7 +39,8 @@ export default function Checkout() {
     calle:{error:false,msjError:''}
   })
 
-  const [data,setData]=useState({
+  //Data -> Información del cliente
+  const [cliente,setCliente]=useState({
     nombre:'',
     apellido:'',
     email:'',
@@ -39,12 +50,14 @@ export default function Checkout() {
     cp:'',
     calle:''
   })
- 
+  
+  //Posición del formulario (1,2,3)
   const [pos,setPos] = useState(1);
 
+  //Validaciones dinamicas de los inputs
   const handleInputChange = (e)=>{
-    setData({
-      ...data,
+    setCliente({
+      ...cliente,
       [e.target.name]:e.target.value
     })
     switch(e.target.name){
@@ -86,17 +99,41 @@ export default function Checkout() {
 
   }
 
+  //Botones de Navegación
   const anterior = ()=>{pos===1||setPos(pos-1)}
   const siguiente = ()=>{
     pos===3?
-    history.push('/scheckout'):
+    pagar():
     setPos(pos+1)
+  }
+
+  //Genera la orden y redirecciona
+  const pagar=()=>{
+    setLoading(true);
+    itemsCart.items.forEach(item => {
+      itemsOrder.push({itemID:item.producto.id,cantidad:item.cantidad})
+    });
+    db.collection('orders').add({
+      cliente,
+      precioTotal:itemsCart.precioTotal,
+      itemsOrder:JSON.stringify(itemsOrder)
+    })
+    .then(docRef=>{
+      vaciarCarrito();
+      history.push(`/checkout/${docRef.id}`)
+    })
+    .catch(err=>{
+      console.log('Error en la generación de la orden',err)
+    })
+    .finally(()=>{
+      setLoading(false)
+    })
   }
 
   const habilitaSiguiente=()=>{
     switch(pos){
       case 1:
-        if([data.nombre,data.apellido,data.email,data.telefono].includes('')||
+        if([cliente.nombre,cliente.apellido,cliente.email,cliente.telefono].includes('')||
           err.nombre.error||err.apellido.error||err.email.error||err.telefono.error){
           setNext(false);
         }else{
@@ -104,7 +141,7 @@ export default function Checkout() {
         }
         break;
       case 2:
-        if([data.provincia,data.ciudad].includes('')||
+        if([cliente.provincia,cliente.ciudad].includes('')||
           err.provincia.error||err.ciudad.error){
           setNext(false);
         }else{
@@ -115,10 +152,17 @@ export default function Checkout() {
     }
   }
 
+  //Si el cart está vacío redirecciona
+  useEffect(()=>{
+    itemsCart.items.length===0&&
+    history.push('/')
+    // eslint-disable-next-line
+  },[])
+
   useEffect(()=>{
     habilitaSiguiente();
     // eslint-disable-next-line
-  },[data,pos])
+  },[cliente,pos])
 
   return (
 
@@ -129,10 +173,11 @@ export default function Checkout() {
       
       <CardData 
         pos={pos}
-        data={data}
+        data={cliente}
         err={err}
         handleInputChange={handleInputChange}
         cart={itemsCart}
+        loading={loading}
         />
       
       <CardButton 

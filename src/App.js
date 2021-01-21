@@ -35,7 +35,7 @@ export default function App() {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/checkout">
+              <Route exact path="/checkout">
                 <Checkout />
               </Route>
               {/*
@@ -43,7 +43,7 @@ export default function App() {
                   <Upload />
               </Route>
               */}
-              <Route path="/scheckout">
+              <Route exact path="/checkout/:idOrden">
                 <SuccessCheckout />
               </Route>
               <Route path="*">
