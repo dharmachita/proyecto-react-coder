@@ -107,16 +107,32 @@ export default function Checkout() {
     setPos(pos+1)
   }
 
+  //Actualizaciones de Stock
+  const updateStock = (itm)=>{
+    db.collection('products').doc(itm.producto.id)
+      .update({
+        stock:itm.producto.stock-itm.cantidad
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+  }
+
   //Genera la orden y redirecciona
   const pagar=()=>{
     setLoading(true);
     itemsCart.items.forEach(item => {
-      itemsOrder.push({itemID:item.producto.id,cantidad:item.cantidad})
+      //Generar el array de productos para el campo de la orden
+      itemsOrder.push({itemID:item.producto.id,cantidad:item.cantidad});
+      
+      //Actualizar Stock
+      updateStock(item);
     });
     db.collection('orders').add({
       cliente,
       precioTotal:itemsCart.precioTotal,
-      itemsOrder:JSON.stringify(itemsOrder)
+      itemsOrder:JSON.stringify(itemsOrder),
+      status:"nuevo"
     })
     .then(docRef=>{
       vaciarCarrito();

@@ -30,10 +30,9 @@ export default function CardData({pos,data,err,handleInputChange,cart,loading}) 
             </div>
             <div>
                 <label htmlFor="email">email:</label>
-                <input onChange={handleInputChange} 
+                <input onBlur={handleInputChange} 
                         type="email" 
-                        name='email' 
-                        value={data.email}                
+                        name='email'           
                         placeholder='fede@miranda.com'/>
             </div>
             <p className={err.email.error?'error':'hide'}>{err.email.msjError}</p>
