@@ -74,12 +74,12 @@ export default function Checkout() {
         })
         break;
       case 'email':
-        setErr({
-          ...err,
-          [e.target.name]:{
-            error:valEmail(e.target).err,
-            msjError:valEmail(e.target).msj
-          }
+          setErr({
+            ...err,
+            [e.target.name]:{
+              error:valEmail(e.target).err,
+              msjError:valEmail(e.target).msj
+            }
         })
         break;
         case 'telefono':
@@ -132,7 +132,8 @@ export default function Checkout() {
       cliente,
       precioTotal:itemsCart.precioTotal,
       itemsOrder:JSON.stringify(itemsOrder),
-      status:"nuevo"
+      status:"nuevo",
+      fecha: new Date()
     })
     .then(docRef=>{
       vaciarCarrito();
@@ -157,7 +158,7 @@ export default function Checkout() {
         }
         break;
       case 2:
-        if([cliente.provincia,cliente.ciudad].includes('')||
+        if([cliente.provincia,cliente.ciudad,cliente.cp,cliente.calle].includes('')||
           err.provincia.error||err.ciudad.error){
           setNext(false);
         }else{
@@ -175,6 +176,7 @@ export default function Checkout() {
     // eslint-disable-next-line
   },[])
 
+  //Habilita el button si cumple con las condiciones
   useEffect(()=>{
     habilitaSiguiente();
     // eslint-disable-next-line
@@ -190,6 +192,7 @@ export default function Checkout() {
       <CardData 
         pos={pos}
         data={cliente}
+        setData={setCliente}
         err={err}
         handleInputChange={handleInputChange}
         cart={itemsCart}

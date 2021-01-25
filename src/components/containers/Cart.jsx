@@ -25,7 +25,7 @@ export default function Cart() {
         <p>Volver al <Link to={'/'}>Home</Link></p>
         </>
       ) : (
-        <div>
+        <div className='item-cart-container'>
           <div>El total de su carrito es ${itemsCart.precioTotal}</div>
           <div>
             <button className='cart-btns empty' onClick={vaciarCarrito}>

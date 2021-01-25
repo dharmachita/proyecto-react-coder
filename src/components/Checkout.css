@@ -14,7 +14,7 @@ span.active{
 }
 
 .error{
-    font-size: small;
+    font-size: 9px;
     font-style: italic;
     font-weight: bold;
     color: red;
@@ -57,7 +57,7 @@ span.active{
     padding-top: 0.5em;
 }
 
-.btn{
+.btn-ck{
     height:45px;
     width:100px;
     display:flex;
@@ -79,7 +79,24 @@ span.active{
     background-color:#69ffc1;
 }
 
+.disabled{
+    background-color:#969696;
+}
+
 .cards-container{
     display: inline-block;
     position: relative;
+}
+
+.form-container{
+    display: grid;
+    grid-template-columns: 80px 200px;
+    text-align: right;
+    padding: 1rem;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.form-container>div>input{
+    width: 200px;
 }
