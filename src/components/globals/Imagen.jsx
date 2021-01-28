@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { getStorage } from "../db";
-import smImg from "../assets/150.png";
-import lgImg from "../assets/300.png";
+import { getStorage } from "../../db";
+import smImg from "../../assets/150.png";
+import lgImg from "../../assets/300.png";
 import { ThreeDots } from "svg-loaders-react";
 
 export default function Imagen({ src, alt, fld, size='sm'}) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/style.css";
-import Imagen from "../globals/Imagen";
+import Imagen from "./globals/Imagen";
 
 export default function Item(props) {
   const { id, title, price, alt, stock, img } = props;

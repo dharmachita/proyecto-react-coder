@@ -1,3 +1,8 @@
+/****************************************************************************
+* Funciones de validación de campos de formulario. String sin números, 
+*                 formato de telefono y de email
+****************************************************************************/
+
 export function valString(str){
     let err=false;
     let msj='';

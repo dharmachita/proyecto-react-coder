@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ItemCount from "../globals/ItemCount";
-import ButtonAddCart from "../globals/ButtonAddCart";
-import Imagen from "../globals/Imagen";
+import ItemCount from "./globals/ItemCount";
+import ButtonAddCart from "./globals/ButtonAddCart";
+import Imagen from "./globals/Imagen";
 
 export default function ItemDetail(props) {
   const { titulo, precio, alt, stock, categoria, descripcion, img } = props;

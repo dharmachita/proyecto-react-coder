@@ -1,17 +1,16 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./globals/Navbar";
+import Navbar from "./components/globals/Navbar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/containers/ItemDetailContainer";
-import Footer from "./globals/Footer";
+import Footer from "./components/globals/Footer";
 import Cuatrocientoscuatro from "./components/404";
 import Cart from "./components/containers/Cart";
 import Checkout from "./components/Checkout";
 import CartProvider from "./contexts/CartContext";
 import Home from "./components/Home";
 import Categories from "./components/Categories";
-import SuccessCheckout from "./components/SuccessCheckout"; 
-//import Upload form "./utils/Upload.jsx";
+import SuccessCheckout from "./components/SuccessCheckout";
 
 export default function App() {
   return (
@@ -38,11 +37,6 @@ export default function App() {
               <Route exact path="/checkout">
                 <Checkout />
               </Route>
-              {/*
-                <Route path="/upload">
-                  <Upload />
-              </Route>
-              */}
               <Route exact path="/checkout/:idOrden">
                 <SuccessCheckout />
               </Route>

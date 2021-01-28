@@ -4,7 +4,7 @@ import { useContext,useEffect,useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import Imagen from '../globals/Imagen';
+import Imagen from './globals/Imagen';
 
 export default function ItemCart({ item, cantidad }) {
   const db = getFirestore();
