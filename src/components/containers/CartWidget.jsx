@@ -1,5 +1,5 @@
 import React from "react";
-import CartWidgetCard from "../CartWidgetCard";
+import CartWidgetCard from "../globals/Cart/CartWidgetCard";
 import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";

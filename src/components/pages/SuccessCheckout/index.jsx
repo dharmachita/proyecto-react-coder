@@ -1,6 +1,8 @@
 import React, {useLayoutEffect,useEffect,useState} from "react";
 import { useHistory, useParams} from 'react-router-dom';
-import {getFirestore} from '../db';
+
+//DB
+import {getFirestore} from '../../../db';
 
 export default function SuccessCheckout() {
   

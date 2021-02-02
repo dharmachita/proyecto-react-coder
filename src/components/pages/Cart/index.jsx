@@ -1,10 +1,14 @@
 import React, { useContext,useLayoutEffect } from "react";
-import {useHistory,Link} from 'react-router-dom';
-import { CartContext } from "../../contexts/CartContext";
-import ItemCart from "../ItemCart";
-import './Cart.css';
+import {useHistory,Link} from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCreditCard } from "@fortawesome/free-solid-svg-icons";
+
+import { CartContext } from "../../../contexts/CartContext";
+import ItemCart from "../../globals/Items/ItemCart";
+
+//Styles
+import "./Cart.css";
 
 export default function Cart() {
   const { itemsCart, vaciarCarrito } = useContext(CartContext);

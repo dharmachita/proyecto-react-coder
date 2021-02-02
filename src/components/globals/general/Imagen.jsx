@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { getStorage } from "../../db";
-import smImg from "../../assets/150.png";
-import lgImg from "../../assets/300.png";
+
+//Loader
 import { ThreeDots } from "svg-loaders-react";
+
+//DB - Storage
+import { getStorage } from "../../../db";
+
+//Img Placeholders
+import smImg from "../../../assets/150.png";
+import lgImg from "../../../assets/300.png";
 
 export default function Imagen({ src, alt, fld, size='sm'}) {
   const [url, setUrl] = useState(smImg);

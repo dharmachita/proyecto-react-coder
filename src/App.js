@@ -1,16 +1,24 @@
 import React from "react";
-import "./App.css";
-import Navbar from "./components/globals/Navbar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ItemDetailContainer from "./components/containers/ItemDetailContainer";
-import Footer from "./components/globals/Footer";
-import Cuatrocientoscuatro from "./components/404";
-import Cart from "./components/containers/Cart";
-import Checkout from "./components/Checkout";
+
+//Navbar & Footer
+import Navbar from "./components/sections/Navbar";
+import Footer from "./components/sections/Footer";
+
+//Pages
+import Home from "./components/pages/Home";
+import Categories from "./components/pages/Categories";
+import Detail from "./components/pages/Detail";
+import Cart from "./components/pages/Cart";
+import Checkout from "./components/pages/Checkout";
+import SuccessCheckout from "./components/pages/SuccessCheckout";
+import Cuatrocientoscuatro from "./components/pages/404";
+
+//Context
 import CartProvider from "./contexts/CartContext";
-import Home from "./components/Home";
-import Categories from "./components/Categories";
-import SuccessCheckout from "./components/SuccessCheckout";
+
+//Style
+import "./App.css";
 
 export default function App() {
   return (
@@ -29,7 +37,7 @@ export default function App() {
                 <Categories />
               </Route>
               <Route path="/item/:itemid">
-                <ItemDetailContainer />
+                <Detail />
               </Route>
               <Route path="/cart">
                 <Cart />

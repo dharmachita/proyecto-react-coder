@@ -1,8 +1,10 @@
-import React from "react";
+import React,{ useState, useEffect } from "react";
+
+//Loader
 import { Bars } from "svg-loaders-react";
-import { useState, useEffect } from "react";
-import Item from "../Item";
-import Error from "../Error";
+
+import Item from "../globals/Items/Item";
+import Error from "../globals/general/Error";
 
 export default function ItemListContainer({filter}) {
 

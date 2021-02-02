@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext, useEffect } from "react";
-import { CartContext } from "../../contexts/CartContext";
+import { CartContext } from "../../../contexts/CartContext";
 
 export default function AddRemoveButton(props) {
   const { stock, init } = props;

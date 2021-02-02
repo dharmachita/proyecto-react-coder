@@ -1,13 +1,22 @@
 import React, {useLayoutEffect,useState,useEffect,useContext} from "react";
-import './Checkout.css'
-import {useHistory} from 'react-router-dom';
-import {valString,valEmail,valTel} from '../utils/validaciones';
-import CardPosition from './CardPosition';
-import CardButton from './CardButtons';
-import CardData from './CardData';
-import {CartContext} from '../contexts/CartContext';
-import {getFirestore} from '../db';
+import {useHistory} from "react-router-dom";
 
+//Validaciones
+import {valString,valEmail,valTel} from "../../../utils/validaciones";
+
+//Cards
+import CardPosition from "../../globals/checkoutCards/CardPosition";
+import CardButton from "../../globals/checkoutCards/CardButtons";
+import CardData from "../../globals/checkoutCards/CardData";
+
+//Context
+import {CartContext} from "../../../contexts/CartContext";
+
+//DB
+import {getFirestore} from "../../../db";
+
+//Style
+import "./Checkout.css"
 
 export default function Checkout() {
   useLayoutEffect(() => {

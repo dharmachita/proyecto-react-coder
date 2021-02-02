@@ -1,7 +1,10 @@
 import React, {useEffect,useState,useLayoutEffect} from "react";
-import ItemListContainer from "./containers/ItemListContainer";
-import { useParams, Link, useHistory} from 'react-router-dom';
-import { getFirestore } from "../db/index";
+import { useParams, Link, useHistory} from "react-router-dom";
+
+import ItemListContainer from "../../containers/ItemListContainer";
+
+//DB
+import { getFirestore } from "../../../db";
 
 
 export default function Categories() {

@@ -1,6 +1,8 @@
 import React,{useEffect,useState} from "react";
 import { NavLink } from "react-router-dom";
-import { getFirestore } from "../db";
+
+//DB
+import { getFirestore } from "../../../db";
 
 export default function CatNavList() {
   const [categorias, setCategorias] = useState([]);

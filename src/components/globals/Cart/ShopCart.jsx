@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState,useContext } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import CartWidget from "./CartWidget";
-import "../../assets/WidgetCart.css";
-import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
+
+import CartWidget from "../../containers/CartWidget";
+import { CartContext } from "../../../contexts/CartContext";
+
+import "./Cart.css";
 
 export default function ShopCart() {
   const cartContext = useContext(CartContext);

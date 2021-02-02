@@ -1,10 +1,14 @@
-import React from "react";
-import ItemDetail from "../ItemDetail";
-import { useParams } from "react-router-dom";
-import { useState, useEffect,useLayoutEffect } from "react";
+import React,{ useState, useEffect,useLayoutEffect } from "react";
+import { useParams,Link } from "react-router-dom";
+
+//Loader
 import { Bars } from "svg-loaders-react";
+
+import ItemDetail from "../globals/Items/ItemDetail";
+
+//DB
 import { getFirestore } from "../../db";
-import { Link } from "react-router-dom";
+
 
 export default function ItemDetailContainer() {
   const [producto, setProducto] = useState();

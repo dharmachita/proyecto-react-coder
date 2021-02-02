@@ -1,7 +1,9 @@
 import React from "react";
-import ShopCart from "../containers/ShopCart";
-import Categories from "../CategoriesNavList";
 import { Link } from "react-router-dom";
+
+import ShopCart from "../../globals/Cart/ShopCart";
+import Categories from "../../globals/Cart/CategoriesNavList";
+
 
 export default function Nabvar() {
   

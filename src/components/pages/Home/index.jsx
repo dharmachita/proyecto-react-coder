@@ -1,6 +1,9 @@
 import React, {useLayoutEffect} from "react";
-import ItemListContainer from "./containers/ItemListContainer";
-import { getFirestore } from "../db/index";
+
+import ItemListContainer from "../../containers/ItemListContainer";
+
+//DB
+import { getFirestore } from "../../../db";
 
 
 export default function Home() {
