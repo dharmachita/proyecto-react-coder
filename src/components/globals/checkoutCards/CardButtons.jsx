@@ -1,3 +1,6 @@
+//Estilos
+import "./CheckoutCards.css";
+
 export default function CardButton({anterior,siguiente,next,pos}) {
     return(
         <div className='card check-nav'>

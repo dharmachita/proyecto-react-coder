@@ -1,3 +1,6 @@
+//Estilos
+import "./CheckoutCards.css";
+
 export default function CardPosition({pos}) {
     return(
         <div className='card position'>

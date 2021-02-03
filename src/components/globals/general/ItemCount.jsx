@@ -1,6 +1,8 @@
-import React from "react";
-import { useState, useContext, useEffect } from "react";
+import React,{ useState, useContext, useEffect } from "react";
 import { CartContext } from "../../../contexts/CartContext";
+
+//Estilos
+import "./General.css";
 
 export default function AddRemoveButton(props) {
   const { stock, init } = props;

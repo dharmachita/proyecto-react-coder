@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ItemCount from "./ItemCount";
-import ButtonAddCart from "./ButtonAddCart";
-import Imagen from "./Imagen";
+
+import ItemCount from "../general/ItemCount";
+import ButtonAddCart from "../general/ButtonAddCart";
+import Imagen from "../general/Imagen";
+
+//Estilos
+import "./Items.css";
 
 export default function ItemDetail(props) {
   const { titulo, precio, alt, stock, categoria, descripcion, img } = props;

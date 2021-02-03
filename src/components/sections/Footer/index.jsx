@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//Estilos
+import "./Footer.css";
 
 export default function Footer() {
   return (

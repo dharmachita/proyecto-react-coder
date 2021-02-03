@@ -1,8 +1,11 @@
-import React from "react";
-import CartWidgetCard from "../globals/Cart/CartWidgetCard";
+import React,{ useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { useContext } from "react";
+
+import CartWidgetCard from "../globals/Cart/CartWidgetCard";
 import { CartContext } from "../../contexts/CartContext";
+
+//Estilos
+import "./Containers.css";
 
 export default function CartWidget({ show, action }) {
   const cartContext = useContext(CartContext);
@@ -21,7 +24,7 @@ export default function CartWidget({ show, action }) {
         >
           Ir al carrito
         </button>
-        <button onClick={action} className="btn btn--outline btn--medium block">
+        <button onClick={action} className="btn btn--outline btn--medium">
           Cerrar
         </button>
       </div>

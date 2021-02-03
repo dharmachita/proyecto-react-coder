@@ -10,6 +10,9 @@ import Imagen from "../general/Imagen";
 //DB
 import {getFirestore} from "../../../db";
 
+//Estilos
+import "./Items.css";
+
 export default function ItemCart({ item, cantidad }) {
   const db = getFirestore();
   const [url,setUrl]=useState("");

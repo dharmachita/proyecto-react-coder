@@ -6,6 +6,9 @@ import { Bars } from "svg-loaders-react";
 import Item from "../globals/Items/Item";
 import Error from "../globals/general/Error";
 
+//Estilos
+import "./Containers.css";
+
 export default function ItemListContainer({filter}) {
 
   const [productos, setProductos] = useState([]);

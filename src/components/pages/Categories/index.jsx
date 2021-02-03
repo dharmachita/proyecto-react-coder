@@ -6,6 +6,8 @@ import ItemListContainer from "../../containers/ItemListContainer";
 //DB
 import { getFirestore } from "../../../db";
 
+//Estilos
+import "./Categories.css";
 
 export default function Categories() {
   useLayoutEffect(() => {

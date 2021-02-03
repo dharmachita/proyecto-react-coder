@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import ShopCart from "../../globals/Cart/ShopCart";
 import Categories from "../../globals/Cart/CategoriesNavList";
 
+//Estilos
+import "./Navbar.css";
 
 export default function Nabvar() {
   

@@ -4,6 +4,9 @@ import { NavLink } from "react-router-dom";
 //DB
 import { getFirestore } from "../../../db";
 
+//Estillos
+import "./Cart.css"
+
 export default function CatNavList() {
   const [categorias, setCategorias] = useState([]);
 

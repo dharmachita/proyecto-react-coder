@@ -9,6 +9,8 @@ import ItemDetail from "../globals/Items/ItemDetail";
 //DB
 import { getFirestore } from "../../db";
 
+//Estilos
+import "./Containers.css";
 
 export default function ItemDetailContainer() {
   const [producto, setProducto] = useState();

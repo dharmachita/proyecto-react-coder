@@ -1,0 +1,37 @@
+/*Nabvar*/
+.navcont{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+    margin-top: 0; 
+    flex-direction:row;
+    justify-content:space-between;
+  } 
+
+.App-header {
+    background-color: #282c34;
+    min-height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0;
+    font-size: calc(20px + 2vmin);
+  }
+
+.logo{
+    margin: 1rem;
+    font-family: 'Lovers Quarrel', cursive;
+    font-weight: normal;
+    padding-left: 2rem;
+  }
+
+  
+@media screen and (max-width: 760px) {
+    .logo{
+      font-size: 35px;
+    }
+  }

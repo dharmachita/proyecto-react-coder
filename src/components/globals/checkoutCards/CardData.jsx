@@ -1,8 +1,10 @@
 import React from 'react';
 
-export default function CardData({pos,data,err,handleInputChange,cart,loading,setData}) {
+//Estilos
+import "./CheckoutCards.css";
 
-       
+export default function CardData({pos,data,err,handleInputChange,cart,loading,setData}) {
+   
     return(
         <div className='card datos'>
             <div className={`${pos===1?'active':'hide'}`}>

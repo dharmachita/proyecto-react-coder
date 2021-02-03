@@ -2,6 +2,9 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { CartContext } from "../../../contexts/CartContext";
 
+//Estilos
+import "./General.css";
+
 export default function ButtonAddCart({ item }) {
   const [click, setClick] = useState(false);
   const { addToCart } = useContext(CartContext);
