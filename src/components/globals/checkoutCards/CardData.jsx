@@ -20,7 +20,7 @@ export default function CardData({pos,data,err,handleInputChange,cart,loading,se
                         value={data.nombre}
                         placeholder='Fede'
                         />
-                        <p className={err.nombre.error?'error':'hide'}>{err.nombre.msjError}</p>
+                        <p className={err.nombre.error?'error_text':'hide'}>{err.nombre.msjError}</p>
                     </div>
                 
                     <div>
@@ -33,7 +33,7 @@ export default function CardData({pos,data,err,handleInputChange,cart,loading,se
                                 value={data.apellido}
                                 placeholder='Miranda'
                         />
-                        <p className={err.apellido.error?'error':'hide'}>{err.apellido.msjError}</p>
+                        <p className={err.apellido.error?'error_text':'hide'}>{err.apellido.msjError}</p>
                     </div>
 
                     <div>
@@ -48,7 +48,7 @@ export default function CardData({pos,data,err,handleInputChange,cart,loading,se
                                 type="email" 
                                 name='email'         
                                 placeholder='fede@miranda.com'/>
-                        <p className={err.email.error?'error':'hide'}>{err.email.msjError}</p>
+                        <p className={err.email.error?'error_text':'hide'}>{err.email.msjError}</p>
                     </div>
                     <div>
                         <label htmlFor="telefono">Teléfono:</label>
@@ -61,7 +61,7 @@ export default function CardData({pos,data,err,handleInputChange,cart,loading,se
                                 placeholder='1133334444'
                                 data-inputmask="'mask':'(99) 9999 - 9999'"
                         />
-                        <p className={err.telefono.error?'error':'hide'}>{err.telefono.msjError}</p>
+                        <p className={err.telefono.error?'error_text':'hide'}>{err.telefono.msjError}</p>
                     </div>
                 </form>
             </div>    
@@ -79,7 +79,7 @@ export default function CardData({pos,data,err,handleInputChange,cart,loading,se
                                 value={data.provincia}
                                 placeholder='Misiones'
                         />
-                        <p className={err.provincia.error?'error':'hide'}>{err.provincia.msjError}</p>
+                        <p className={err.provincia.error?'error_text':'hide'}>{err.provincia.msjError}</p>
                     </div>
                     <div>
                         <label htmlFor="ciudad">Ciudad:</label>
@@ -91,7 +91,7 @@ export default function CardData({pos,data,err,handleInputChange,cart,loading,se
                                 value={data.ciudad}
                                 placeholder='Springfield'
                         />
-                        <p className={err.ciudad.error?'error':'hide'}>{err.ciudad.msjError}</p>
+                        <p className={err.ciudad.error?'error_text':'hide'}>{err.ciudad.msjError}</p>
                     </div>
                     <div>
                         <label htmlFor="cp">CP:</label>

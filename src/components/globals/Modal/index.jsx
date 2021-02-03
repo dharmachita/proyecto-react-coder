@@ -13,7 +13,7 @@ export default function Modal({title,msj,show,setShow}){
             <div className="content">{msj}</div>
             <div className="actions">
                 <button 
-                    className="toggle-button close"
+                    className="toggle-button close-modal"
                     onClick={()=>setShow(false)}>
                     Seguir Comprando
                 </button>
