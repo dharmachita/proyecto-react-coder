@@ -1,7 +1,10 @@
 /*Modal*/
-
 .modal {
-    width: 500px;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    max-width: 100vh;
     background: white;
     border: 1px solid #ccc;
     transition: 1.1s ease-out;
@@ -47,13 +50,26 @@
   }
   .modal .actions button {
     border: 0;
-    background: #78f89f;
     border-radius: 5px;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     line-height: 1;
   }
   
+  .close{
+      background: rgb(170, 7, 7);
+      color: white;
+  }
+
+  .see-cart{
+    background: #78f89f;
+  }
+
+  
   #centered-toggle-button {
     position: absolute;
+  }
+
+  .toggle-button{
+      margin: 0 1rem;
   }

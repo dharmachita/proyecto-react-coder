@@ -1,17 +1,26 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 
 import ItemCount from "../general/ItemCount";
 import ButtonAddCart from "../general/ButtonAddCart";
 import Imagen from "../general/Imagen";
+import Modal from "../Modal";
 
 //Estilos
 import "./Items.css";
 
 export default function ItemDetail(props) {
   const { titulo, precio, alt, stock, categoria, descripcion, img } = props;
+  const [show,setShow] = useState(false);
+  const mensaje = `Para finalizar tu compra ingresá al carrito.`;
   return (
     <>
+      <Modal 
+        title="Has agregado productos al carrito!!"
+        msj={mensaje}
+        show={show}
+        setShow={setShow}  
+      />
       <h2>{titulo}</h2>
       <div className="detail-img-desc">
         <figure className="img-container">
@@ -24,7 +33,10 @@ export default function ItemDetail(props) {
             </figcaption>
             <div className="button-container">
               <ItemCount stock={stock} init={stock < 1 ? "0" : "1"} />
-              <ButtonAddCart item={props} />
+              <ButtonAddCart 
+                item={props}
+                setShow={setShow}
+                />
             </div>
           </div>
         </figure>

@@ -5,7 +5,7 @@ import { CartContext } from "../../../contexts/CartContext";
 //Estilos
 import "./General.css";
 
-export default function ButtonAddCart({ item }) {
+export default function ButtonAddCart({ item,setShow }) {
   const [click, setClick] = useState(false);
   const { addToCart } = useContext(CartContext);
   let history = useHistory();
@@ -18,6 +18,7 @@ export default function ButtonAddCart({ item }) {
       e.target.className = "add-button color-clicked";
       addToCart(item);
       setClick(true);
+      setShow(true);
     }
   };
 
